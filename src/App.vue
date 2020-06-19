@@ -1,10 +1,27 @@
 <template lang="pug">
-.container
-  .row
-    .col-sm-3(v-for="item in items" v-bind:key="item.id")
-      .artist
-      img.artist__image(v-bind:src="item.image")
-      h4.text-center {{ item.title }}
+  v-row
+    v-col(
+      v-for="(bar, i) in bars"
+      :key="i"
+      cols="12"
+      sm="12"
+      md="6"
+      class="my-4"
+    )
+    
+      v-card(color="grey lighten-4" flat height="200px")
+        v-toolbar(:color="bar.class" :dark="bar.dark")
+          v-app-bar-nav-icon
+          v-toolbar-title
+          v-spacer
+          v-btn icon
+            v-icon
+          
+          v-btn icon
+            v-icon
+          
+          v-btn icon
+            v-icon
 </template>
 
 <script>
@@ -14,31 +31,11 @@ export default {
   components: {},
 
   data: () => ({
-    items: [
-      {
-        id: 1,
-        title: "Miles Davis",
-        image:
-          "https://img.discogs.com/saz25T9xJgOthJLeH0-lQg7jk34=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/A-23755-1394387343-4500.jpeg.jpg",
-      },
-      {
-        id: 2,
-        title: "Kenny Burrell",
-        image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNpBV6iV60h2HRfy-ai6FB_MWqxFpxGWxO6Km0UO4UAklKytRpig",
-      },
-      {
-        id: 3,
-        title: "Buddy Rich",
-        image:
-          "https://lastfm-img2.akamaized.net/i/u/avatar300s/5ba3d9e8b5cf492886a088974ae727a2.jpg",
-      },
-      {
-        id: 4,
-        title: "Chet baker",
-        image:
-          "http://cdn.musicjazzfree.com/artists/c/chet-baker/chet-baker-5.jpg",
-      },
+    bars: [
+      { class: "" },
+      { class: "", dark: true },
+      { class: "primary", dark: true },
+      { class: "elevation-0" },
     ],
   }),
 };
